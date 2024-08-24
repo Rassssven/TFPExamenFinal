@@ -4,7 +4,7 @@ import AddGreetingForm from './components/Addgreeting';
 function App() {
   return (
     <div className="App">
-      <h1>Greeting Management</h1>
+      <h1>Completati campurile</h1>
       <AddGreetingForm />
     </div>
   );
