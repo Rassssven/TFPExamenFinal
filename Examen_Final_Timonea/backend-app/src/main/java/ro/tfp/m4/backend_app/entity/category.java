@@ -19,7 +19,6 @@ public class category {
     public Long getCategoryID() {
         return categoryID;
     }
-
     public void setCategoryID(Long categoryID) {
         this.categoryID = categoryID;
     }

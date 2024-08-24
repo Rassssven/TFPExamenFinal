@@ -13,8 +13,12 @@ public class GreetingService {
     @Autowired
     private GreetingRepository greetingRepository;
 
-    public greeting saveGreeting(greeting greeting) {
-        return greetingRepository.save(greeting);
+    public boolean createNewGreeting(greeting greeting) {
+        if (greeting.getPrice() <= 0) {
+            return false;
+        }
+        greetingRepository.save(greeting);
+        return true;
     }
 
     public List<greeting> getAllGreetings() {

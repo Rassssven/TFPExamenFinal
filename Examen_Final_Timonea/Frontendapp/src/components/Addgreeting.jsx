@@ -8,7 +8,7 @@ const AddGreetingForm = () => {
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+      e.preventDefault();
     const greeting = { description, price: parseFloat(price), typeID, categoryID };
 
     try {
@@ -22,14 +22,17 @@ const AddGreetingForm = () => {
 
       if (response.ok) {
         const data = await response.text();
-        setMessage(`Success: ${data}`);
+        setMessage(`success: ${data}`);
+
       } else {
 
         const errorData = await response.text();
-        setMessage(`Error: ${errorData}`);
+        setMessage(`error: ${errorData}`);
       }
+
+
     } catch (error) {
-      setMessage(`Error: ${error.message}`);
+      setMessage(`error: ${error.message}`);
     }
 
   };
@@ -37,10 +40,10 @@ const AddGreetingForm = () => {
   return (
 
     <div>
-      <h2>Add a new greeting</h2>
+      <h2>Adauga o felicitare noua</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Description:</label>
+          <label>Descriere:</label>
           <input
             type="text"
             value={description}
@@ -48,16 +51,18 @@ const AddGreetingForm = () => {
             required
           />
         </div>
+
         <div>
-          <label>Price:</label>
+          <label>Pret:</label>
           <input
-            type="number"
+          type="number"
             step="0.01"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             required
           />
         </div>
+
         <div>
           <label>Type ID:</label>
           <input
@@ -67,6 +72,7 @@ const AddGreetingForm = () => {
             required
           />
         </div>
+
         <div>
           <label>Category ID:</label>
           <input
@@ -76,7 +82,9 @@ const AddGreetingForm = () => {
             required
           />
         </div>
+
         <button type="submit">Submit</button>
+
       </form>
       {message && <p>{message}</p>}
     </div>
